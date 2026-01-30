@@ -263,7 +263,6 @@ export class CreateInitialTables1700000000000 implements MigrationInterface {
       );
     }
 
-    // Constraint: balance não pode ser negativo
     const balanceCheckExists = await queryRunner.query(`
       SELECT constraint_name 
       FROM information_schema.table_constraints 
@@ -278,7 +277,6 @@ export class CreateInitialTables1700000000000 implements MigrationInterface {
       `);
     }
 
-    // Constraint: totalPurchased e totalUsed não podem ser negativos
     const totalsCheckExists = await queryRunner.query(`
       SELECT constraint_name 
       FROM information_schema.table_constraints 
@@ -452,7 +450,6 @@ export class CreateInitialTables1700000000000 implements MigrationInterface {
         );
       }
 
-      // Constraint: duration deve ser 30 ou 60
       const durationCheckExists = await queryRunner.query(`
         SELECT constraint_name 
         FROM information_schema.table_constraints 
@@ -467,7 +464,6 @@ export class CreateInitialTables1700000000000 implements MigrationInterface {
         `);
       }
 
-      // Constraint: creditsUsed deve ser positivo
       const creditsCheckExists = await queryRunner.query(`
         SELECT constraint_name 
         FROM information_schema.table_constraints 
